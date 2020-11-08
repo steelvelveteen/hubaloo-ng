@@ -8,13 +8,15 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { WelcomeTitleComponent } from './welcome-title/welcome-title.component';
 import { PromptUnitComponent } from './prompt-unit/prompt-unit.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { ResetpasswordFormComponent } from './resetpassword-form/resetpassword-form.component';
 
 @NgModule({
     declarations: [
         LoginFormComponent,
         WelcomeTitleComponent,
         PromptUnitComponent,
-        SignupFormComponent
+        SignupFormComponent,
+        ResetpasswordFormComponent
     ],
     imports: [
         CommonModule,
@@ -26,7 +28,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     exports: [
         LoginFormComponent,
         WelcomeTitleComponent,
-        SignupFormComponent
+        SignupFormComponent,
+        ResetpasswordFormComponent
     ]
 })
 export class ComponentsModule { }

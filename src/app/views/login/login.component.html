@@ -12,9 +12,9 @@
                 <signup-form (toggleLogin)="toggleLoginMode()"></signup-form>
             </div>
 
-            <!-- <div *ngIf="resetPasswordMode">
-                <resetpassword-form></resetpassword-form>
-            </div> -->
+            <div *ngIf="resetPasswordMode">
+                <resetpassword-form (toggleLogin)="toggleLoginMode()"></resetpassword-form>
+            </div>
         </div>
     </div>
 </div>
