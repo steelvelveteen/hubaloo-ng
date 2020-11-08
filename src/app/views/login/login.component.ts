@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  signUpMode = false;
+  loginMode = true;
+  resetPasswordMode = false;
+
   constructor() { }
 
   ngOnInit(): void {

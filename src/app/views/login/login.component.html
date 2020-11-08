@@ -4,7 +4,16 @@
         </div>
         <div class="form-container">
             <welcome-title></welcome-title>
-            <login-form></login-form>
+            <div *ngIf="loginMode">
+                <login-form></login-form>
+            </div>
+            <!-- <div *ngIf="signUpMode"> -->
+            <!-- <signup-form></signup-form> -->
+            <!-- </div> -->
+
+            <!-- <div *ngIf="resetPasswordMode">
+                <resetpassword-form></resetpassword-form>
+            </div> -->
         </div>
     </div>
 </div>
