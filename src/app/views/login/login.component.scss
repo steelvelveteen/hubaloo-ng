@@ -1,0 +1,28 @@
+#login {
+    .container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .background-container {
+        z-index: 1;
+        position: absolute;
+        background-image: url('../../../assets/img/paintwallpaper.jpg');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-container {
+        z-index: 2;
+        min-width: 368px;
+        background-color: #fcfaff;
+        padding: 1rem;
+        border-radius: 2%;
+        border: 2px solid #BA5CFF;
+    }
+}
+    
