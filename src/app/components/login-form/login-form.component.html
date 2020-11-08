@@ -1,21 +1,19 @@
 <div id="login-form-container">
-    <form class="form" id="form-submit" [formGroup]="loginForm" autoComplete="off" (ngSumbit)="login()">
+    <form class="form" id="form-submit" [formGroup]="loginForm" autoComplete="off">
 
         <mat-form-field class="input-fields">
             <mat-label>Email</mat-label>
-            <input matInput type="text" placeholder="Ex. pat@example.com" formControlName="emailFormControl">
-            <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+            <input matInput type="email" placeholder="Ex. pat@example.com" formControlName="emailFormControl">
+            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
-            </mat-error>
+            </mat-error> -->
         </mat-form-field>
 
         <mat-form-field class="input-fields">
             <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="passwordFormControl">
         </mat-form-field>
-        <!-- <button mat-raised-button class="btn" form="form-submit" type="submit">
-            Login
-        </button> -->
+     
     </form>
 
     <button mat-raised-button class="btn" form="form-submit" (click)="login()">

@@ -26,13 +26,16 @@ export class LoginFormComponent implements OnInit {
       password: ''
     };
     this.loginForm = new FormGroup({
-      emailFormControl: new FormControl('jeo9yviudojf'),
+      emailFormControl: new FormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
       passwordFormControl: new FormControl('')
     });
   }
 
   login(): void {
-    console.log(this.loginForm);
+    console.log(this.loginForm.value);
   }
 
   setEmail(): void {
