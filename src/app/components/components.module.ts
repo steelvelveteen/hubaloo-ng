@@ -25,7 +25,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     ],
     exports: [
         LoginFormComponent,
-        WelcomeTitleComponent
+        WelcomeTitleComponent,
+        SignupFormComponent
     ]
 })
 export class ComponentsModule { }

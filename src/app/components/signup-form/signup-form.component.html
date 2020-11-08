@@ -1,1 +1,28 @@
-<p>signup-form works!</p>
+<div id="signup-form-container">
+    <form class="form" id="form-submit" [formGroup]="signUpForm" autoComplete="off">
+
+        <mat-form-field class="input-fields">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Ex. pat@example.com" formControlName="emailFormControl">
+        </mat-form-field>
+
+        <mat-form-field class="input-fields">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="passwordFormControl">
+        </mat-form-field>
+
+        <mat-form-field class="input-fields">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPasswordFormControl">
+        </mat-form-field>
+    </form>
+
+    <button [disabled]="!signUpForm.valid" mat-raised-button class="btn" form="form-submit" (click)="signUp()">
+        Sign Up
+    </button>
+    <div class="error-message-container"></div>
+    <div class="prompt-container">
+        <prompt-unit btnText="Login" [promptText]="loginPromptText" (toggleMode)="toggleLoginMode()">
+        </prompt-unit>
+    </div>
+</div>

@@ -5,11 +5,12 @@
         <div class="form-container">
             <welcome-title></welcome-title>
             <div *ngIf="loginMode">
-                <login-form></login-form>
+                <login-form (toggleSignUp)="toggleSignUpMode()" (toggleResetPassword)="toggleResetPasswordMode()">
+                </login-form>
             </div>
-            <!-- <div *ngIf="signUpMode"> -->
-            <!-- <signup-form></signup-form> -->
-            <!-- </div> -->
+            <div *ngIf="signUpMode">
+                <signup-form (toggleLogin)="toggleLoginMode()"></signup-form>
+            </div>
 
             <!-- <div *ngIf="resetPasswordMode">
                 <resetpassword-form></resetpassword-form>

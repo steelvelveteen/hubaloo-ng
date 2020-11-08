@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 type CredentialsType = {
@@ -12,6 +12,9 @@ type CredentialsType = {
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+
+  @Output() toggleSignUp = new EventEmitter();
+  @Output() toggleResetPassword = new EventEmitter();
 
   loginForm: FormGroup;
   signUpPromptText = 'Don\'t have an account?';
@@ -50,13 +53,16 @@ export class LoginFormComponent implements OnInit {
   setPassword(): void {
 
   }
+
   toggleSignUpMode(): void {
-    console.log('Toggle sign up mode clicked');
+    // console.log('Toggle sign up mode clicked');
+    this.toggleSignUp.emit();
 
   }
 
   toggleResetPasswordMode(): void {
     console.log('Toggle reset password mode clicked');
+    this.toggleResetPassword.emit();
 
   }
 }

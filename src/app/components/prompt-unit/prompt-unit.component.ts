@@ -10,6 +10,7 @@ export class PromptUnitComponent implements OnInit {
   @Input() btnText: string;
   @Input() promptText: string;
   @Output() toggleMode = new EventEmitter();
+  // @Output() toggleResetPasswordMode = new EventEmitter();
 
   constructor() { }
 
@@ -18,5 +19,6 @@ export class PromptUnitComponent implements OnInit {
 
   toggle(): void {
     this.toggleMode.emit();
+    // this.toggleResetPasswordMode.emit();
   }
 }

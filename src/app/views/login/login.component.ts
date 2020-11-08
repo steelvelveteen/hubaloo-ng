@@ -16,4 +16,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleLoginMode(): void {
+    this.loginMode = true;
+    this.signUpMode = false;
+    this.resetPasswordMode = false;
+  }
+
+  toggleSignUpMode(): void {
+    console.log('Toggle sign up mode clicked');
+    this.signUpMode = true;
+    this.loginMode = false;
+    this.resetPasswordMode = false;
+  }
+
+  toggleResetPasswordMode(): void {
+    this.resetPasswordMode = true;
+    this.signUpMode = false;
+    this.loginMode = false;
+  }
 }
