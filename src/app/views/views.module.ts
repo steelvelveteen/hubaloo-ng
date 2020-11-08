@@ -5,11 +5,11 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
-import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
     declarations: [
-        LoginComponent
+        LandingComponent
     ],
     imports: [
         CommonModule,
@@ -20,7 +20,7 @@ import { LoginComponent } from './login/login.component';
         ComponentsModule
     ],
     exports: [
-        LoginComponent
+        LandingComponent
     ]
 })
 export class ViewsModule { }
