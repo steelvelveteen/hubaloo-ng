@@ -1,0 +1,16 @@
+.prompt-unit {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: purple;
+
+    .btn-alternative {
+        color: grey;
+        font-size: 0.7rem;
+        &:hover {
+            color: #720178
+        }
+    }
+}

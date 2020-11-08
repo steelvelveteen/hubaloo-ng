@@ -6,11 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { WelcomeTitleComponent } from './welcome-title/welcome-title.component';
+import { PromptUnitComponent } from './prompt-unit/prompt-unit.component';
 
 @NgModule({
     declarations: [
         LoginFormComponent,
-        WelcomeTitleComponent
+        WelcomeTitleComponent,
+        PromptUnitComponent
     ],
     imports: [
         CommonModule,

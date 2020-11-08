@@ -11,4 +11,14 @@
             color: #483C32;
         }
     }
+
+    .prompt-container {
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .error-message-container {
+        min-height: 3.5rem;
+        margin: 1rem 0;
+    }
 }
