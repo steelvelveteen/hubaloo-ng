@@ -1,9 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 type CredentialsType = {
   email: string;
   password: string;
+};
+
+type LoginResponseType = {
+  message: string,
+  user_id: string,
+  email: string,
+  token: string
 };
 
 @Component({
@@ -11,7 +22,7 @@ type CredentialsType = {
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnDestroy {
 
   @Output() toggleSignUp = new EventEmitter();
   @Output() toggleResetPassword = new EventEmitter();
@@ -22,8 +33,9 @@ export class LoginFormComponent implements OnInit {
   email: string;
   password: string;
   credentials: CredentialsType;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.credentials = {
@@ -43,26 +55,39 @@ export class LoginFormComponent implements OnInit {
   }
 
   login(): void {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
+    this.credentials.email = this.setEmail();
+    this.credentials.password = this.setPassword();
+    console.log(this.credentials);
+    this.subscription = this.authService.Login(this.credentials).subscribe(
+      (data: LoginResponseType) => {
+        console.log(data.token);
+        localStorage.setItem('token', JSON.stringify(data.token));
+        this.router.navigateByUrl('mainlayout');
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
   }
 
-  setEmail(): void {
-
+  setEmail(): string {
+    return this.loginForm.get('emailFormControl').value;
   }
 
-  setPassword(): void {
-
+  setPassword(): string {
+    return this.loginForm.get('passwordFormControl').value;
   }
 
   toggleSignUpMode(): void {
-    // console.log('Toggle sign up mode clicked');
     this.toggleSignUp.emit();
-
   }
 
   toggleResetPasswordMode(): void {
-    console.log('Toggle reset password mode clicked');
     this.toggleResetPassword.emit();
+  }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
